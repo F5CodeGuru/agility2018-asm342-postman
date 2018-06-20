@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "53e46098-8624-4fb6-accb-0c8eff673843",
+		"name": "Agility2018-ASM342",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetAllASMPolicies",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://{{bigipa_host}}/mgmt/tm/asm/policies",
+					"protocol": "https",
+					"host": [
+						"{{bigipa_host}}"
+					],
+					"path": [
+						"mgmt",
+						"tm",
+						"asm",
+						"policies"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{bigipa_password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{bigipa_user}}",
+				"type": "string"
+			},
+			{
+				"key": "saveHelperData",
+				"type": "any"
+			},
+			{
+				"key": "showPassword",
+				"value": false,
+				"type": "boolean"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9244f415-923a-402d-a049-a5a73a01b73a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "fb0afd19-c128-4a94-b5f9-4bd121229413",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "cb65ab7c-4e72-4d9b-8ae9-429eed14323d",
+			"key": "bigipa_user",
+			"value": "admin",
+			"type": "string",
+			"description": ""
+		},
+		{
+			"id": "c4dc5726-ea0f-40d6-8d1e-d1ec4013c79d",
+			"key": "bigipa_password",
+			"value": "bigip123",
+			"type": "string",
+			"description": ""
+		},
+		{
+			"id": "4a7eb27c-2c4c-40f0-b0f4-47239487653c",
+			"key": "ansible1_policyid",
+			"value": "u-6T62j_f0XMkjJ_s_Z-gg",
+			"type": "string",
+			"description": ""
+		},
+		{
+			"id": "25f8361f-aff5-48b5-ab05-58767fa80d4a",
+			"key": "bigipa_host",
+			"value": "10.4.6.10",
+			"type": "string",
+			"description": ""
+		},
+		{
+			"id": "da734c7c-d7cb-4016-8bc1-0b2aba535eb6",
+			"key": "policyid",
+			"value": "{{ansible1_policyid}}",
+			"type": "string",
+			"description": ""
+		}
+	]
+}
