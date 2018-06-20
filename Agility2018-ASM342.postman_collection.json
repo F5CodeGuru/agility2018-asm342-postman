@@ -17,7 +17,17 @@
 				],
 				"body": {},
 				"url": {
-					"raw": ""
+					"raw": "https://{{bigipa_host}}/mgmt/tm/asm/policies",
+					"protocol": "https",
+					"host": [
+						"{{bigipa_host}}"
+					],
+					"path": [
+						"mgmt",
+						"tm",
+						"asm",
+						"policies"
+					]
 				}
 			},
 			"response": []
@@ -71,35 +81,35 @@
 	],
 	"variable": [
 		{
-			"id": "641da792-525b-4671-81b0-40fb29b94108",
+			"id": "cb65ab7c-4e72-4d9b-8ae9-429eed14323d",
 			"key": "bigipa_user",
 			"value": "admin",
 			"type": "string",
 			"description": ""
 		},
 		{
-			"id": "fe5a955e-9f81-486e-b9a8-e981eb0ecd71",
+			"id": "c4dc5726-ea0f-40d6-8d1e-d1ec4013c79d",
 			"key": "bigipa_password",
 			"value": "bigip123",
 			"type": "string",
 			"description": ""
 		},
 		{
-			"id": "6cb353ef-4075-48de-a84d-55e4aa32c319",
+			"id": "4a7eb27c-2c4c-40f0-b0f4-47239487653c",
 			"key": "ansible1_policyid",
 			"value": "u-6T62j_f0XMkjJ_s_Z-gg",
 			"type": "string",
 			"description": ""
 		},
 		{
-			"id": "fa53191f-2a0c-45f3-84ef-1c8f58a27d52",
+			"id": "25f8361f-aff5-48b5-ab05-58767fa80d4a",
 			"key": "bigipa_host",
 			"value": "10.4.6.10",
 			"type": "string",
 			"description": ""
 		},
 		{
-			"id": "7cacb2b5-3e1c-42eb-9e5a-f1f2ded5ae6e",
+			"id": "da734c7c-d7cb-4016-8bc1-0b2aba535eb6",
 			"key": "policyid",
 			"value": "{{ansible1_policyid}}",
 			"type": "string",
