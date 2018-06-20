@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "53e46098-8624-4fb6-accb-0c8eff673843",
+		"name": "Agility2018-ASM342",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetAllASMPolicies",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{bigipa_password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{bigipa_user}}",
+				"type": "string"
+			},
+			{
+				"key": "saveHelperData",
+				"type": "any"
+			},
+			{
+				"key": "showPassword",
+				"value": false,
+				"type": "boolean"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9244f415-923a-402d-a049-a5a73a01b73a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "fb0afd19-c128-4a94-b5f9-4bd121229413",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "641da792-525b-4671-81b0-40fb29b94108",
+			"key": "bigipa_user",
+			"value": "admin",
+			"type": "string",
+			"description": ""
+		},
+		{
+			"id": "fe5a955e-9f81-486e-b9a8-e981eb0ecd71",
+			"key": "bigipa_password",
+			"value": "bigip123",
+			"type": "string",
+			"description": ""
+		},
+		{
+			"id": "6cb353ef-4075-48de-a84d-55e4aa32c319",
+			"key": "ansible1_policyid",
+			"value": "u-6T62j_f0XMkjJ_s_Z-gg",
+			"type": "string",
+			"description": ""
+		},
+		{
+			"id": "fa53191f-2a0c-45f3-84ef-1c8f58a27d52",
+			"key": "bigipa_host",
+			"value": "10.4.6.10",
+			"type": "string",
+			"description": ""
+		},
+		{
+			"id": "7cacb2b5-3e1c-42eb-9e5a-f1f2ded5ae6e",
+			"key": "policyid",
+			"value": "{{ansible1_policyid}}",
+			"type": "string",
+			"description": ""
+		}
+	]
+}
