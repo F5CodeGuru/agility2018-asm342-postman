@@ -90,7 +90,7 @@
 		{
 			"id": "c4dc5726-ea0f-40d6-8d1e-d1ec4013c79d",
 			"key": "bigipa_password",
-			"value": "bigip123",
+			"value": "f5DEMOs4u!",
 			"type": "string",
 			"description": ""
 		},
@@ -104,7 +104,7 @@
 		{
 			"id": "25f8361f-aff5-48b5-ab05-58767fa80d4a",
 			"key": "bigipa_host",
-			"value": "10.4.6.10",
+			"value": "10.1.1.245",
 			"type": "string",
 			"description": ""
 		},
