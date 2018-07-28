@@ -205,14 +205,14 @@
 		{
 			"id": "7cc8e21b-c596-4aae-9ca4-966e04dce69e",
 			"key": "bigipa_password",
-			"value": "bigip123",
+			"value": "f5DEMOs4u!",
 			"type": "string",
 			"description": ""
 		},
 		{
 			"id": "6f11153b-d2f9-42a3-a7c7-dc9d08a082f3",
 			"key": "bigipa_host",
-			"value": "10.4.6.10",
+			"value": "10.1.1.245",
 			"type": "string",
 			"description": ""
 		},
