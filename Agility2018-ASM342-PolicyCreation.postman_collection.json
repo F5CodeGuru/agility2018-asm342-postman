@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "705f79ef-c86d-468e-b377-c0a065ff5ad8",
+		"name": "Agility2018-ASM342-PolicyCreation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Module3Lab4-ex1-CreateAsmPolicy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0e8325c2-2da3-491a-a345-2be4232ba10b",
+						"type": "text/javascript",
+						"exec": [
+							"//Store the response in a variable",
+							"var getAllASMPoliciesData = JSON.parse(responseBody);",
+							"",
+							"//set the policyid envirnment variable equal to the policy id",
+							"pm.environment.set(\"policyId\",getAllASMPoliciesData.id)",
+							"//print the policyid to the javascript console",
+							"console.log( pm.environment.get(\"policyId\"))",
+							"",
+							"//set the policyid environment variable equal to the policy id",
+							"var bigipHostIp = pm.variables.get(\"bigipa_host\")",
+							"",
+							"#Form the link to the policy so that it can be stored in an environment variable",
+							"policyIdUrlTemp = 'https://' + bigipHostIp + '/mgmt/tm/asm/policies/' + getAllASMPoliciesData.id",
+							"console.log(policyIdUrlTemp)",
+							"",
+							"//set the policyIdUrl envirnment variable equal to the policy id reference url",
+							"pm.environment.set(\"policyIdUrl\",policyIdUrlTemp)",
+							"",
+							"",
+							"    ",
+							"  "
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"name\": \"postman1\" }\n"
+				},
+				"url": {
+					"raw": "https://{{bigipa_host}}/mgmt/tm/asm/policies/",
+					"protocol": "https",
+					"host": [
+						"{{bigipa_host}}"
+					],
+					"path": [
+						"mgmt",
+						"tm",
+						"asm",
+						"policies",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Module3Lab4-ex2-AddWhitelistIps",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c6b597ed-3c84-4be2-b6f2-0a8dccd1ad7d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ipAddress\": \"1.1.1.4\",\n\t\"ipMask\": \"255.255.255.255\"\n\t\n}\n"
+				},
+				"url": {
+					"raw": "https://{{bigipa_host}}/mgmt/tm/asm/policies/{{policyId}}/whitelist-ips",
+					"protocol": "https",
+					"host": [
+						"{{bigipa_host}}"
+					],
+					"path": [
+						"mgmt",
+						"tm",
+						"asm",
+						"policies",
+						"{{policyId}}",
+						"whitelist-ips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Module3Lab4-ex3-ApplyPolicy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"policyReference\": {\"link\":\"{{policyIdUrl}}\"} }"
+				},
+				"url": {
+					"raw": "https://{{bigipa_host}}/mgmt/tm/asm/tasks/apply-policy",
+					"protocol": "https",
+					"host": [
+						"{{bigipa_host}}"
+					],
+					"path": [
+						"mgmt",
+						"tm",
+						"asm",
+						"tasks",
+						"apply-policy"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{bigipa_password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{bigipa_user}}",
+				"type": "string"
+			},
+			{
+				"key": "saveHelperData",
+				"type": "any"
+			},
+			{
+				"key": "showPassword",
+				"value": false,
+				"type": "boolean"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "2111c933-98e7-4618-bfd2-af30a1eeeebd",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "af24dd2d-75ce-4b12-981c-bd0c98f36c60",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "731521c4-39e6-4060-a442-24ffa5be92e9",
+			"key": "bigipa_user",
+			"value": "admin",
+			"type": "string",
+			"description": ""
+		},
+		{
+			"id": "7cc8e21b-c596-4aae-9ca4-966e04dce69e",
+			"key": "bigipa_password",
+			"value": "bigip123",
+			"type": "string",
+			"description": ""
+		},
+		{
+			"id": "6f11153b-d2f9-42a3-a7c7-dc9d08a082f3",
+			"key": "bigipa_host",
+			"value": "10.4.6.10",
+			"type": "string",
+			"description": ""
+		},
+		{
+			"id": "d87dad90-4add-48bb-9706-d46f65ac90c1",
+			"key": "policyId",
+			"value": "",
+			"type": "string",
+			"description": ""
+		},
+		{
+			"id": "2d4617d5-22eb-43ef-b51f-797f2eed1227",
+			"key": "policyIdUrl",
+			"value": "",
+			"type": "string",
+			"description": ""
+		}
+	]
+}
