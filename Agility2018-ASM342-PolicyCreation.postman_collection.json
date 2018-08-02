@@ -25,7 +25,7 @@
 							"//set the policyid environment variable equal to the policy id",
 							"var bigipHostIp = pm.variables.get(\"bigipa_host\")",
 							"",
-							"//Form the link to the policy so that it can be stored in an environment variable",
+							"#Form the link to the policy so that it can be stored in an environment variable",
 							"policyIdUrlTemp = 'https://' + bigipHostIp + '/mgmt/tm/asm/policies/' + getAllASMPoliciesData.id",
 							"console.log(policyIdUrlTemp)",
 							"",
