@@ -6,12 +6,13 @@
 	},
 	"item": [
 		{
+			"_postman_id": "95c7120b-b481-4c41-a083-3fd311f1072b",
 			"name": "Module3Lab4-ex1-CreateAsmPolicy",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "0e8325c2-2da3-491a-a345-2be4232ba10b",
+						"id": "696a3675-7849-408c-ac51-af5dd37620cb",
 						"type": "text/javascript",
 						"exec": [
 							"//Store the response in a variable",
@@ -25,7 +26,7 @@
 							"//set the policyid environment variable equal to the policy id",
 							"var bigipHostIp = pm.variables.get(\"bigipa_host\")",
 							"",
-							"#Form the link to the policy so that it can be stored in an environment variable",
+							"//Form the link to the policy so that it can be stored in an environment variable",
 							"policyIdUrlTemp = 'https://' + bigipHostIp + '/mgmt/tm/asm/policies/' + getAllASMPoliciesData.id",
 							"console.log(policyIdUrlTemp)",
 							"",
@@ -69,6 +70,7 @@
 			"response": []
 		},
 		{
+			"_postman_id": "f2b86c13-e8f7-4d47-8267-763f047345f5",
 			"name": "Module3Lab4-ex2-AddWhitelistIps",
 			"event": [
 				{
@@ -113,6 +115,7 @@
 			"response": []
 		},
 		{
+			"_postman_id": "9a6c2009-f2bc-4daf-8212-3bd4d1742eb8",
 			"name": "Module3Lab4-ex3-ApplyPolicy",
 			"request": {
 				"method": "POST",
@@ -196,39 +199,34 @@
 	],
 	"variable": [
 		{
-			"id": "731521c4-39e6-4060-a442-24ffa5be92e9",
+			"id": "aa976e37-2feb-4e11-9d68-64ac6e287826",
 			"key": "bigipa_user",
 			"value": "admin",
-			"type": "string",
-			"description": ""
+			"type": "string"
 		},
 		{
-			"id": "7cc8e21b-c596-4aae-9ca4-966e04dce69e",
+			"id": "4d9c357b-15d6-40e4-a4b9-43c53c8f699c",
 			"key": "bigipa_password",
 			"value": "password",
-			"type": "string",
-			"description": ""
+			"type": "string"
 		},
 		{
-			"id": "6f11153b-d2f9-42a3-a7c7-dc9d08a082f3",
+			"id": "242ece0c-44fc-4404-af7d-ea98bd462ee2",
 			"key": "bigipa_host",
 			"value": "10.1.1.245",
-			"type": "string",
-			"description": ""
+			"type": "string"
 		},
 		{
-			"id": "d87dad90-4add-48bb-9706-d46f65ac90c1",
+			"id": "a68571b3-413e-4cc7-8f76-fddbb5e7888c",
 			"key": "policyId",
 			"value": "",
-			"type": "string",
-			"description": ""
+			"type": "string"
 		},
 		{
-			"id": "2d4617d5-22eb-43ef-b51f-797f2eed1227",
+			"id": "6a9e9534-c260-4678-bc3f-29bdfae5b8e7",
 			"key": "policyIdUrl",
 			"value": "",
-			"type": "string",
-			"description": ""
+			"type": "string"
 		}
 	]
 }
