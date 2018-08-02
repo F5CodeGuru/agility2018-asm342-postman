@@ -6,7 +6,135 @@
 	},
 	"item": [
 		{
-			"name": "GetAllASMPolicies",
+			"_postman_id": "342e4596-d8be-49e4-a424-ec9d88faf1b5",
+			"name": "Module3Lab1-ex1-GetAllASMPolicies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a80d7230-04af-4cc2-a4fc-15950e1f8225",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://{{bigipa_host}}/mgmt/tm/asm/policies/",
+					"protocol": "https",
+					"host": [
+						"{{bigipa_host}}"
+					],
+					"path": [
+						"mgmt",
+						"tm",
+						"asm",
+						"policies",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "9794129a-34bc-4025-b3ad-8c173b08b9e3",
+			"name": "Module3Lab1-ex2-GetAllASMPoliciesFilteredParam",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ba6fab62-71e4-44ee-8469-14ea05db108a",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://{{bigipa_host}}/mgmt/tm/asm/policies/?$filter=name+eq+ansible1&$select=id",
+					"protocol": "https",
+					"host": [
+						"{{bigipa_host}}"
+					],
+					"path": [
+						"mgmt",
+						"tm",
+						"asm",
+						"policies",
+						""
+					],
+					"query": [
+						{
+							"key": "$filter",
+							"value": "name+eq+ansible1"
+						},
+						{
+							"key": "$select",
+							"value": "id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "ae615549-628b-436d-b9d1-6b12b5ce8c4c",
+			"name": "Module3Lab1-ex3-GetAllASMPoliciesFilteredTests",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "11063f14-695e-4f2d-b210-b1031da12e5c",
+						"type": "text/javascript",
+						"exec": [
+							"//Store the response in a variable",
+							"var getAllASMPoliciesData = JSON.parse(responseBody);",
+							"",
+							"//iterate through all the policies",
+							"for (i = 0; i < getAllASMPoliciesData.totalItems; i++) {",
+							"    ",
+							"    //filter on the name and find the policy wiht the name \"ansible1\"",
+							"    if ( getAllASMPoliciesData.items[i].name == \"ansible1\"  ) {",
+							"    ",
+							"        //set the policyid envirnment variable equal to the policy id",
+							"        pm.environment.set(\"policyid\",getAllASMPoliciesData.items[i].id)",
+							"        //print the policyid to the javascript console",
+							"        console.log( pm.environment.get(\"policyid\"))",
+							"",
+							"    ",
+							"    }",
+							"    ",
+							"    ",
+							"}",
+							"",
+							""
+						]
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [
@@ -81,39 +209,34 @@
 	],
 	"variable": [
 		{
-			"id": "cb65ab7c-4e72-4d9b-8ae9-429eed14323d",
+			"id": "70bae370-1591-4edd-a1c3-33f71d7f7bbb",
 			"key": "bigipa_user",
 			"value": "admin",
-			"type": "string",
-			"description": ""
+			"type": "string"
 		},
 		{
-			"id": "c4dc5726-ea0f-40d6-8d1e-d1ec4013c79d",
+			"id": "829a4776-2215-4b0c-bf15-79e7cd9418a7",
 			"key": "bigipa_password",
-			"value": "f5DEMOs4u!",
-			"type": "string",
-			"description": ""
+			"value": "bigip123",
+			"type": "string"
 		},
 		{
-			"id": "4a7eb27c-2c4c-40f0-b0f4-47239487653c",
+			"id": "59b84582-3e17-4a7a-ab33-ddb9aa4856de",
 			"key": "ansible1_policyid",
 			"value": "u-6T62j_f0XMkjJ_s_Z-gg",
-			"type": "string",
-			"description": ""
+			"type": "string"
 		},
 		{
-			"id": "25f8361f-aff5-48b5-ab05-58767fa80d4a",
+			"id": "acda9ea5-b108-4548-8be2-dc979ce6818f",
 			"key": "bigipa_host",
-			"value": "10.1.1.245",
-			"type": "string",
-			"description": ""
+			"value": "10.4.6.10",
+			"type": "string"
 		},
 		{
-			"id": "da734c7c-d7cb-4016-8bc1-0b2aba535eb6",
+			"id": "507c063e-257d-4672-8622-0dec9152af4b",
 			"key": "policyid",
-			"value": "{{ansible1_policyid}}",
-			"type": "string",
-			"description": ""
+			"value": "",
+			"type": "string"
 		}
 	]
 }
